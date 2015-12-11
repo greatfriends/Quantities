@@ -46,7 +46,7 @@ Tile B | 60    | 120    | 900
  
 While Tile A dimension is in inches, but Tile B is in centimeters.
 
-## How to solve
+## How to solve it (wrongly)
 
 1. **I know it**      
 You just have only the amount data and omitted unit of measurement at all. 
@@ -84,7 +84,7 @@ You use one of above solutions and create [NotMapped] property
 that implements intelligent Quantity.
  
 
-## The Quantities Library
+## Design Goals
 
 The Quantities library use object-oriented approach intensively 
 and highly inspired by the book Enterprise Patterns and MDA.
