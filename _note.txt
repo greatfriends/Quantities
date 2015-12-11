@@ -1,0 +1,10 @@
+
+From the **Cars Example**, *Seat* is already unit of measurement itself (how many seats). 
+But *Length* is in **millimeters**. 
+*MaxSpeed* is in **kilometers per hour**,
+*FuelCapacity* is in **liters**, and *CargoVolume* is in **cubic meters**.
+
+From the **Tiles Example**, *UnitsInStock* is already unit of measurement itself (how many units).
+*Width* and *Length* mixed use of unit. *Tile A* is in **inches** 
+but *Tile B* is in **centimeters**.
+ 

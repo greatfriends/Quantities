@@ -134,62 +134,62 @@ all quantities still be the same. Nothing lost, nothing changed.
 
 3. If you want other than `double`, you can specify it this way.
 
-```C#
-var length = 4889.Millimeters<int>();
-var maxSpeed = new Speed<float>(220, SpeedUnit.KilometersPerHour);
-```
+  ```C#
+  var length = 4889.Millimeters<int>();
+  var maxSpeed = new Speed<float>(220, SpeedUnit.KilometersPerHour);
+  ```
 
 4. It is guaranteed to be saved and retrieve back from database through Entity Framework
-with no data loss. It still know its *original unit*.
-
-```C#
-// Add it to database via Entity Framework
-db.Boxes.Add(box);
-db.SaveChanges();
-
-// Retrieve back from database
-using(var db2 = new Db()) {
-  var box2 = db2.First();
-  WriteLine(box2.Width);       // "4.7 cm."
-  WriteLine(box2.Height);      // "0.11 m."
-}
-```
+  with no data loss. It still know its *original unit*.
+  
+  ```C#
+  // Add it to database via Entity Framework
+  db.Boxes.Add(box);
+  db.SaveChanges();
+  
+  // Retrieve back from database
+  using(var db2 = new Db()) {
+    var box2 = db2.First();
+    WriteLine(box2.Width);       // "4.7 cm."
+    WriteLine(box2.Height);      // "0.11 m."
+  }
+  ```
 
 5. Quantity can be manipulated with basic math operations 
-such as addition, subtraction, multiplication, and division.
-
-```C#
-// Modify quantity
-var salt = new Mass(23, MassUnit.Grams); // 23 g.
-salt = salt * 2;                     // 46 g.
-salt += 500.Milligrams();            // 46.5 g.
-
-WriteLine(salt); // "46.5 g."
-WriteLine(salt.ToMilligrams("n2")); // "46,500 mg."
-
-Length a = 4.Inches();
-Length b = 20.Inches();
-Length c = (a + b).ToFeet(); // 2 ft. 
-```
+  such as addition, subtraction, multiplication, and division.
+  
+  ```C#
+  // Modify quantity
+  var salt = new Mass(23, MassUnit.Grams); // 23 g.
+  salt = salt * 2;                     // 46 g.
+  salt += 500.Milligrams();            // 46.5 g.
+  
+  WriteLine(salt); // "46.5 g."
+  WriteLine(salt.ToMilligrams("n2")); // "46,500 mg."
+  
+  Length a = 4.Inches();
+  Length b = 20.Inches();
+  Length c = (a + b).ToFeet(); // 2 ft. 
+  ```
 
 6. It also supports localization.
-
-```C#
-// Localization
-var th = new CultureInfo("th-TH");
-WriteLine(salt.ToString(th)); // "46.5 ก."
-```
+  
+  ```C#
+  // Localization
+  var th = new CultureInfo("th-TH");
+  WriteLine(salt.ToString(th)); // "46.5 ก."
+  ```
 
 7. Code can be simplified by using Settings.
-
-```C#
-// Settings
-Quantity.Settings.Culture = new CultureInfo("en-US");
-Quantity.Settings.Amount.Format = "n2";
-Quantity.Settings.Unit.UseAbbreviation = false;
-
-WriteLine(salt); // "46.50 grams"
-```
+  
+  ```C#
+  // Settings
+  Quantity.Settings.Culture = new CultureInfo("en-US");
+  Quantity.Settings.Amount.Format = "n2";
+  Quantity.Settings.Unit.UseAbbreviation = false;
+  
+  WriteLine(salt); // "46.50 grams"
+  ```
 
 
 **Note** All text and code in README.md still under development and design.
