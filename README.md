@@ -80,14 +80,14 @@ So you have to know to use them together yourself in OOP.
 That is some kind of overhead.
 
 5. **I create a wrapper property for this**  
-You use one of above solutions and create [NotMapped] property
+You use one of above solutions and create `[NotMapped]` property
 that implements intelligent Quantity.
  
 
 ## Design Goals
 
 The Quantities library use object-oriented approach intensively 
-and highly inspired by the book Enterprise Patterns and MDA.
+and highly inspired by the book **Enterprise Patterns and MDA**.
 
 1. **Quantity = Amount + Unit**  
 We can use just `Length` for the amount and unit of that quantity. 
@@ -126,7 +126,7 @@ all quantities still be the same. Nothing lost, nothing changed.
   
   ```C#
   // Explore and printing out
-  WriteLine($"a) {box.Width.Amount:n2} {box.Width.Unit}"); // "a) 4.7 cm."
+  WriteLine($"a) {box.Width.Amount:n2} {box.Width.Unit}"); // "a) 4.70 cm."
   WriteLine($"b) {box.Width}");                            // "b) 4.7 cm."
   WriteLine($"c) {box.Height}");                           // "c) 0.11 m."
   WriteLine($"d) {box.Height.ToCentimeters()}");           // "d) 11 cm."
@@ -165,7 +165,7 @@ all quantities still be the same. Nothing lost, nothing changed.
   salt += 500.Milligrams();            // 46.5 g.
   
   WriteLine(salt); // "46.5 g."
-  WriteLine(salt.ToMilligrams("n2")); // "46,500 mg."
+  WriteLine(salt.ToMilligrams("n0")); // "46,500 mg."
   
   Length a = 4.Inches();
   Length b = 20.Inches();
